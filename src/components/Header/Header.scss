@@ -1,0 +1,77 @@
+@use "../../styles/partials/mixins";
+@use "../../styles/partials/typography";
+@use "../../styles/partials/variables";
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+.header {
+    background-color: variables.$bg-graphite;;
+    height:13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+
+    @include mixins.tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 10rem;
+        max-width: 1020px;;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    @include mixins.desktop {
+        padding: 2rem 0;
+    }
+
+    &__wrapper {
+        background-color: variables.$bg-graphite;
+    }
+    &__logo {
+        &-size {
+            height: 1.75rem;
+            margin-bottom: 1rem;
+
+            @include mixins.tablet {
+                margin-bottom: 0;
+            }
+        }
+    }
+    &__list {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        text-decoration: none;
+        list-style-type: none;
+
+        @include mixins.tablet {
+            width: 30%;
+        }
+    }
+    &__menu {
+        text-align: center;
+        width: 50%;
+
+        @include mixins.tablet {
+            margin-left: 0.5rem;
+        }
+    }
+    &__decor {
+        color: white;
+        padding: 0.5rem;
+        border-radius: 1.25rem;
+
+        &:hover {
+            background-color: variables.$primary-black;
+        }
+    }
+}
+
+.active {
+    background-color: variables.$primary-black;
+    border-radius: 1.25rem;
+}

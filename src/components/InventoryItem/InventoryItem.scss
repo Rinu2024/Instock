@@ -1,0 +1,186 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables";
+
+.item-body {
+  background-color: variables.$bg-lightgrey;
+}
+
+.item-wrapper {
+  max-width: 63.75rem;
+  margin: 0 auto;
+  position: relative;
+  top: -4rem;
+}
+
+.item {
+  background-color: variables.$primary-white;
+  border-radius: 0.19em;
+  @include box-shadow;
+  margin: 0 1.5rem;
+
+  @include tablet{
+    margin: 0 2rem;
+  }
+  @include desktop {
+    margin: 0;
+  }
+
+  &__header {
+    border-bottom: 0.0625rem solid variables.$secondary-cloud;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: space-between;
+
+    @include tablet {
+      padding: 2rem 2rem 1rem 2rem;
+    }
+
+    @include tablet {
+      padding: 2rem 2.5rem 1rem 2.5rem;
+    }
+  }
+
+  &__left {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  &__name {
+    color: variables.$primary-black;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 1.9em;
+  }
+
+  &__edit {
+    background-color: variables.$primary-indigo;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+      background-color: variables.$primary-black;
+    }
+
+    @include tablet {
+      width: auto;
+      border-radius: 1.25rem;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      gap: 0.5rem;
+    }
+
+    &-text {
+      display: none;
+
+      @include tablet {
+        display: block;
+        color: $primary-white;
+      }
+    }
+  }
+  &__items {
+    margin: 0.7em 2em;
+  }
+  &__itemstyle {
+    line-height: 2;
+    color: variables.$secondary-slate;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 0.8em;
+  }
+  &__stock {
+    border-radius: 312em;
+    width: 7em;
+    text-align: center;
+    font-family: $font-family;
+    font-weight: 600;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+  &__stock--instock {
+    color: variables.$green;
+    background-color: rgba(21, 36, 63, 0.07);
+  }
+  &__stock--nostock {
+    color: variables.$red;
+    background-color: rgba(201, 69, 21, 0.07);
+  }
+  &__data {
+    color: variables.$primary-black;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 0.9em;
+  }
+  &__status {
+    display: flex;
+    justify-content: flex-start;
+  }
+  &__status &__items {
+    margin-right: 2em;
+  }
+  &__body {
+    padding-bottom: 2rem;
+    background-color: $primary-white;
+  }
+}
+
+@include tablet {
+  .item {
+
+    &__body {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1.5em;
+    }
+    &__header {
+      margin-top: -0.3em; //Line
+    }
+
+    &__itemdiv {
+      width: 32.5em;
+    }
+    &__arrowback {
+      top: 9.5em;
+      left: 5em;
+    }
+    &__itemdiv--line {
+      border-right: 0.0625rem solid #bdc5d5;
+    }
+    &__itemstyle {
+      font-family: $font-family;
+      font-weight: 600;
+      font-size: 0.8em;
+    }
+    &__name {
+      font-family: $font-family;
+      font-weight: 600;
+      font-size: 2rem;
+    }
+    &__status &__items {
+      margin-right: 5em;
+    }
+    &__data {
+      text-wrap: balance;
+      margin-bottom: 2rem;
+      font-family: $font-family;
+      font-weight: 400;
+      font-size: 1em;
+    }
+
+    &__stock {
+      font-family: $font-family;
+      font-weight: 600;
+      font-size: 0.8em;
+    }
+    &__footer {
+      margin-top: 10em;
+    }
+  }
+}
